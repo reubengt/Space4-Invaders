@@ -1,3 +1,27 @@
+# Face Name Game
+
+[Play the Game](https://face-name-game.netlify.com)
+
+---
+
+## Why
+
+---
+
+## What
+
+---
+
+## Instructions
+
+---
+
+## Run Locally
+
+---
+
+### Create React App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
