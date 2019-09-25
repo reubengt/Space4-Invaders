@@ -1,8 +1,9 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+
 import teamRequest from "./utils/request";
-function App() {
+const App = () => {
   const Team = async () => {
     const teamData = await teamRequest("FAC-17", "students");
     const teamId = teamData.team_id;
@@ -28,6 +29,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
