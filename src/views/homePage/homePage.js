@@ -1,5 +1,6 @@
 import React from "react";
 import "./homePage.css";
+import TeamForm from "../../components/teamForm/TeamForm";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
           better game
         </h4>
       </div>
+      <TeamForm />
     </>
   );
 };
