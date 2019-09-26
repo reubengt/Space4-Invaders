@@ -42,15 +42,14 @@ const generateGamePhasesArray = profiles => {
   });
 };
 
-const generateGameArrays = profiles => {
-  const shuffledProfiles = shuffle(profiles);
-  const gameArray = generateGamePhasesArray(shuffledProfiles);
-  const correctPositionArray = generateCorrectPositionArray(
+const generateGameArrays = async profiles => {
+  const shuffledProfiles = await shuffle(profiles);
+  const gamePhasesArray = await generateGamePhasesArray(shuffledProfiles);
+  const correctPositionArray = await generateCorrectPositionArray(
     shuffledProfiles,
-    gameArray
+    gamePhasesArray
   );
-  console.log({ gameArray });
-  console.log({ correctPositionArray });
+  return { gamePhasesArray, correctPositionArray };
 };
 
 export default generateGameArrays;

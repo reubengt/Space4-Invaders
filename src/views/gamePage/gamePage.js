@@ -1,10 +1,35 @@
 import React from "react";
 import "./gamePage.css";
 import { positionArray } from "./../../utils/constants";
+import generateGameArrays from "../../utils/generateGameArrays";
 
 const GamePage = ({ profiles }) => {
+  const [gameArrays, setGameArrays] = React.useState("");
   const [leftOffset, setleftOffset] = React.useState(positionArray[0]);
   const [selectedIndex, setselectedIndex] = React.useState(null);
+
+  React.useEffect(() => {
+    const startGame = () => {
+      generateGameArrays(profiles).then(gameArrays => {
+        console.log(gameArrays);
+        setGameArrays(gameArrays);
+      });
+    };
+
+    if (Array.isArray(profiles)) {
+      // const startButton = document.getElementById("start-button");
+      // startButton.addEventListener("click", startGame);
+      // return () => startButton.removeEventListener("click", startGame);
+    }
+  }, [gameArrays, profiles, setGameArrays]);
+
+  // generateGameArrays(profiles).then(gameArrays => {
+  //   console.log(gameArrays);
+  //   setGameArrays(gameArrays);
+  // });
+  console.log(gameArrays[0]);
+  // console.log(gameArrays[1]);
+
   const styleObj = {
     left: leftOffset
   };

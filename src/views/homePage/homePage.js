@@ -3,8 +3,7 @@ import "./homePage.css";
 import requestMembers from "../../utils/requestMembers";
 
 import TeamForm from "../../components/teamForm/TeamForm";
-import InitiateGame from "../../components/InitiateGame/InitiateGame";
-import generateGameArrays from "../../utils/generateGameArrays";
+import SearchStatus from "../../components/SearchStatus/SearchStatus";
 
 const HomePage = ({ setPage, profiles, setProfiles }) => {
   const [organisation, setOrganisation] = React.useState("");
@@ -25,7 +24,6 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
       event.preventDefault();
       setProfiles("loading");
       requestMembers(organisation, team).then(profiles => {
-        generateGameArrays(profiles);
         setProfiles(profiles);
       });
     };
@@ -44,7 +42,7 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
         </h4>
       </div>
       <TeamForm updateSearch={updateSearch} />
-      <InitiateGame profiles={profiles} startGame={startGame} />
+      <SearchStatus profiles={profiles} startGame={startGame} />
     </>
   );
 };

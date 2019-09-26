@@ -1,6 +1,6 @@
 import React from "react";
 
-const InitiateGame = ({ profiles, startGame }) => {
+const SearchStatus = ({ profiles, startGame }) => {
   const notFound = <p>not Found</p>;
   const searchForTeam = <p>Search for a team</p>;
   const loading = <p> Loading </p>;
@@ -28,4 +28,4 @@ const InitiateGame = ({ profiles, startGame }) => {
   );
 };
 
-export default InitiateGame;
+export default SearchStatus;
