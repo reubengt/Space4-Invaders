@@ -4,6 +4,7 @@ import requestMembers from "../../utils/requestMembers";
 
 import TeamForm from "../../components/teamForm/TeamForm";
 import InitiateGame from "../../components/InitiateGame/InitiateGame";
+import generateGameArrays from "../../utils/generateGameArrays";
 
 const HomePage = ({ setPage, profiles, setProfiles }) => {
   const [organisation, setOrganisation] = React.useState("");
@@ -24,6 +25,7 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
       event.preventDefault();
       setProfiles("loading");
       requestMembers(organisation, team).then(profiles => {
+        generateGameArrays(profiles);
         setProfiles(profiles);
       });
     };
