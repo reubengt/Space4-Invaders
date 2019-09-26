@@ -15,8 +15,8 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
       : setOrganisation(event.target.value);
   };
 
-  const startGame = () => {
-    setPage("game");
+  const loadGame = () => {
+    setPage("load");
   };
 
   React.useEffect(() => {
@@ -42,7 +42,7 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
         </h4>
       </div>
       <TeamForm updateSearch={updateSearch} />
-      <SearchStatus profiles={profiles} startGame={startGame} />
+      <SearchStatus profiles={profiles} loadGame={loadGame} />
     </>
   );
 };
