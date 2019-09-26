@@ -1,4 +1,4 @@
-import { token } from "../token.js";
+const token = process.env.REACT_APP_GITHUB_TOKEN;
 const requestMembers = async (org, team) => {
   const teamData = await fetch(
     `https://api.github.com/orgs/${org}/teams/${team}?access_token=${token}`
