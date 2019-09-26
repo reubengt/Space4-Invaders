@@ -8,12 +8,12 @@ import GamePage from "./views/gamePage/gamePage";
 const App = () => {
   const [page, setPage] = React.useState("home");
 
-  const Team = async () => {
-    const data = await requestMembers("FAC-17", "students");
-    console.log("Data in component", data);
-  };
+  // const Team = async () => {
+  //   const data = await requestMembers("FAC-17", "students");
+  //   console.log("Data in component", data);
+  // };
 
-  Team();
+  // Team();
   return (
     <div className="App">
       <header className="App-header">Name the Face Game</header>
