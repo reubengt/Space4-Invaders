@@ -56,3 +56,6 @@
   left: 75%;
   border: 3px solid green;
 }
+.shot-down {
+  background-color: grey;
+}

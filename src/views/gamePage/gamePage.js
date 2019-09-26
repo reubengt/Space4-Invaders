@@ -12,10 +12,9 @@ const GamePage = () => {
     thirdPosition,
     fourthPosition
   ];
-  const imageArray = ["img1", "img2", "img3", "img4"];
 
   const [leftOffset, setleftOffset] = React.useState(firstPosition);
-  const [selectedImage, setselectedImage] = React.useState("img1");
+  const [selectedIndex, setselectedIndex] = React.useState(null);
   const styleObj = {
     left: leftOffset
   };
@@ -27,7 +26,6 @@ const GamePage = () => {
         else {
           currentIndex -= 1;
           setleftOffset(positionArray[currentIndex]);
-          setselectedImage(imageArray[currentIndex]);
         }
       }
       if (event.key === "ArrowRight") {
@@ -35,10 +33,10 @@ const GamePage = () => {
         else {
           currentIndex += 1;
           setleftOffset(positionArray[currentIndex]);
-          setselectedImage(imageArray[currentIndex]);
         }
       }
       if (event.key === " ") {
+        setselectedIndex(currentIndex);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -51,10 +49,18 @@ const GamePage = () => {
         <div className="column"></div>
         <div className="column"></div>
         <div className="column"></div>
-        <div className="img img1"></div>
-        <div className="img img2"></div>
-        <div className="img img3"></div>
-        <div className="img img4"></div>
+        <div
+          className={`img img1 ${selectedIndex === 0 ? "shot-down" : ""}`}
+        ></div>
+        <div
+          className={`img img2 ${selectedIndex === 1 ? "shot-down" : ""}`}
+        ></div>
+        <div
+          className={`img img3 ${selectedIndex === 2 ? "shot-down" : ""}`}
+        ></div>
+        <div
+          className={`img img4 ${selectedIndex === 3 ? "shot-down" : ""}`}
+        ></div>
         <div className="player-character" style={styleObj}></div>
       </div>
     </div>
