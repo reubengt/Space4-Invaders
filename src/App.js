@@ -2,12 +2,11 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-import teamRequest from "./utils/request";
+import requestMembers from "./utils/requestMembers";
 const App = () => {
   const Team = async () => {
-    const teamData = await teamRequest("FAC-17", "students");
-    const teamId = teamData.team_id;
-    console.log(teamData);
+    const data = await requestMembers("FAC-17", "students");
+    console.log("Data in component", data);
     return <div>abcd</div>;
   };
   Team();
