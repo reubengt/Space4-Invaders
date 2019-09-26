@@ -1,8 +1,33 @@
 import React from "react";
 import "./homePage.css";
-import TeamForm from "../../components/teamForm/TeamForm";
+import requestMembers from "../../utils/requestMembers";
+
+import TeamForm from "../../components/TeamForm/TeamForm";
+import InitiateGame from "../../components/InitiateGame/InitiateGame";
 
 const HomePage = () => {
+  const [organisation, setOrganisation] = React.useState("");
+  const [team, setTeam] = React.useState("");
+  const [profiles, setProfiles] = React.useState("");
+
+  const updateSearch = event => {
+    event.target.name === "team"
+      ? setTeam(event.target.value)
+      : setOrganisation(event.target.value);
+  };
+
+  React.useEffect(() => {
+    const submitSearch = event => {
+      event.preventDefault();
+      requestMembers(organisation, team).then(profiles => {
+        setProfiles(profiles);
+      });
+    };
+
+    window.addEventListener("submit", submitSearch);
+    return () => window.removeEventListener("submit", submitSearch);
+  }, [organisation, profiles, team]);
+
   return (
     <>
       <div>
@@ -13,7 +38,8 @@ const HomePage = () => {
           better game
         </h4>
       </div>
-      <TeamForm />
+      <TeamForm updateSearch={updateSearch} />
+      <InitiateGame profiles={profiles} />
     </>
   );
 };
