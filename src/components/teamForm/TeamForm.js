@@ -1,4 +1,5 @@
 import React from "react";
+import requestMembers from "./../../utils/requestMembers";
 
 const TeamForm = () => {
   const [organisation, setOrganisation] = React.useState("");
@@ -10,9 +11,15 @@ const TeamForm = () => {
       : setOrganisation(event.target.value);
   };
 
+  const Team = async (organisation, team) => {
+    const data = await requestMembers(organisation, team);
+    console.log("Data in component", data);
+  };
+
   const submitSearch = event => {
     event.preventDefault();
-    console.log(event);
+    console.log({ team }, { organisation });
+    Team(organisation, team);
   };
 
   return (
