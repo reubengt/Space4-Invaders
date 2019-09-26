@@ -6,11 +6,20 @@ import GamePage from "./views/gamePage/gamePage";
 
 const App = () => {
   const [page, setPage] = React.useState("home");
+  const [profiles, setProfiles] = React.useState("");
 
   return (
     <div className="App">
       <header className="App-header">Name the Face Game</header>
-      {page === "home" ? <HomePage /> : <GamePage />}
+      {page === "home" ? (
+        <HomePage
+          setPage={setPage}
+          profiles={profiles}
+          setProfiles={setProfiles}
+        />
+      ) : (
+        <GamePage profiles={profiles} />
+      )}
     </div>
   );
 };
