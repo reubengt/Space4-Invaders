@@ -17,13 +17,13 @@ const InitiateGame = ({ profiles, startGame }) => {
 
   return (
     <>
-      {profiles === "error"
-        ? notFound
-        : profiles === ""
+      {profiles === ""
         ? searchForTeam
-        : Array.isArray(profiles)
-        ? loadGame
-        : loading}
+        : profiles === "error"
+        ? notFound
+        : profiles === "loading"
+        ? loading
+        : loadGame}
     </>
   );
 };

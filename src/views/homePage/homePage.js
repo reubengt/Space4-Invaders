@@ -8,7 +8,6 @@ import InitiateGame from "../../components/InitiateGame/InitiateGame";
 const HomePage = ({ setPage, profiles, setProfiles }) => {
   const [organisation, setOrganisation] = React.useState("");
   const [team, setTeam] = React.useState("");
-  // const [profiles, setProfiles] = React.useState("");
 
   const updateSearch = event => {
     event.target.name === "team"
@@ -17,13 +16,13 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
   };
 
   const startGame = () => {
-    console.log("hit start");
     setPage("game");
   };
 
   React.useEffect(() => {
     const submitSearch = event => {
       event.preventDefault();
+      setProfiles("loading");
       requestMembers(organisation, team).then(profiles => {
         setProfiles(profiles);
       });
