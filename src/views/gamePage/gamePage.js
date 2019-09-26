@@ -1,19 +1,8 @@
 import React from "react";
 import "./gamePage.css";
-
-const GamePage = ({ profiles }) => {
-  const firstPosition = "calc(0% + (25% / 2) - 10px)";
-  const secondPosition = "calc(25% + (25% / 2) - 10px)";
-  const thirdPosition = "calc(50% + (25% / 2) - 10px)";
-  const fourthPosition = "calc(75% + (25% / 2) - 10px)";
-  const positionArray = [
-    firstPosition,
-    secondPosition,
-    thirdPosition,
-    fourthPosition
-  ];
-
-  const [leftOffset, setleftOffset] = React.useState(firstPosition);
+import { positionArray } from "./../../utils/constants";
+const GamePage = () => {
+  const [leftOffset, setleftOffset] = React.useState(positionArray[0]);
   const [selectedIndex, setselectedIndex] = React.useState(null);
   const styleObj = {
     left: leftOffset
@@ -41,7 +30,7 @@ const GamePage = ({ profiles }) => {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [positionArray]);
+  }, []);
   return (
     <div className="main-container">
       <div className="game-container">

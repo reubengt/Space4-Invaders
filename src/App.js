@@ -18,7 +18,7 @@ const App = () => {
           setProfiles={setProfiles}
         />
       ) : page === "game" ? (
-        <GamePage profiles={profiles} />
+        <GamePage />
       ) : (
         <p>ERROR!!!</p>
       )}
