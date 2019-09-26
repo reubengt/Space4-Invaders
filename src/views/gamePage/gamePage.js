@@ -1,7 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import "./gamePage.css";
-const GamePage = () => {
+
+const GamePage = ({ profiles }) => {
   const firstPosition = "calc(0% + (25% / 2) - 10px)";
   const secondPosition = "calc(25% + (25% / 2) - 10px)";
   const thirdPosition = "calc(50% + (25% / 2) - 10px)";
@@ -41,7 +41,7 @@ const GamePage = () => {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [positionArray]);
   return (
     <div className="main-container">
       <div className="game-container">

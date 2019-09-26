@@ -1,17 +1,27 @@
 const token = process.env.REACT_APP_GITHUB_TOKEN;
+
 const requestMembers = async (org, team) => {
   const teamData = await fetch(
     `https://api.github.com/orgs/${org}/teams/${team}?access_token=${token}`
   ).then(res => {
     return res.json();
   });
+  if (!teamData.name) {
+    return "error";
+  }
   const team_id = teamData.id;
-  const membersObject = await fetch(
+
+  const membersArray = await fetch(
     `https://api.github.com/teams/${team_id}/members?access_token=${token}`
   ).then(res => {
     return res.json();
   });
-  const memberInfoPromiseArray = membersObject.map(member => {
+
+  if (!membersArray[0]) {
+    return "error";
+  }
+
+  const memberInfoPromiseArray = membersArray.map(member => {
     return fetch(`${member.url}?access_token=${token}`)
       .then(res => res.json())
       .then(memberInfoFromApi => {
@@ -23,12 +33,13 @@ const requestMembers = async (org, team) => {
         return memberInfo;
       });
   });
+
   const memberInfoArray = await Promise.all(memberInfoPromiseArray).then(
     resultArray => {
       return resultArray;
     }
   );
-  console.log("final member info array", memberInfoArray);
+
   return memberInfoArray;
 };
 
