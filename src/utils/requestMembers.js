@@ -31,6 +31,7 @@ const requestMembers = async (org, team) => {
     }
   );
   console.log("final member info array", memberInfoArray);
+  return memberInfoArray;
 };
 
 export default requestMembers;
