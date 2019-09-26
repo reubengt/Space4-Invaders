@@ -10,18 +10,18 @@ const requestMembers = async (org, team) => {
     return "error";
   }
   const team_id = teamData.id;
-  console.log({ teamData });
-  console.log({ team_id });
 
-  const membersObject = await fetch(
+  const membersArray = await fetch(
     `https://api.github.com/teams/${team_id}/members?access_token=${token}`
   ).then(res => {
     return res.json();
   });
 
-  console.log("members", membersObject);
+  if (!membersArray[0]) {
+    return "error";
+  }
 
-  const memberInfoPromiseArray = membersObject.map(member => {
+  const memberInfoPromiseArray = membersArray.map(member => {
     return fetch(`${member.url}?access_token=${token}`)
       .then(res => res.json())
       .then(memberInfoFromApi => {
@@ -33,13 +33,13 @@ const requestMembers = async (org, team) => {
         return memberInfo;
       });
   });
-  console.log("memberinfopromises", memberInfoPromiseArray);
+
   const memberInfoArray = await Promise.all(memberInfoPromiseArray).then(
     resultArray => {
       return resultArray;
     }
   );
-  console.log("final member info array", memberInfoArray);
+
   return memberInfoArray;
 };
 
