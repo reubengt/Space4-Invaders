@@ -42,7 +42,7 @@
 
 .img1 {
   left: 0%;
-  border: 3px solid red;
+  border: 3px solid white;
 }
 .img2 {
   left: 25%;
@@ -54,8 +54,11 @@
 }
 .img4 {
   left: 75%;
-  border: 3px solid green;
+  border: 3px solid purple;
 }
-.shot-down {
-  background-color: grey;
+.shot-down-correct {
+  background-color: green;
+}
+.shot-down-incorrect {
+  background-color: red;
 }
