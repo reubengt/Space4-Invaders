@@ -1,4 +1,4 @@
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,7 +6,7 @@ body {
 .main-container {
   height: 90vh;
   width: 100vw;
-  background-color: red;
+  background-color: grey;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,14 +16,43 @@ body {
   height: 60vh;
   width: 80vw;
   position: relative;
-  background-color: green;
+  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
 }
-
+.column {
+  width: 100%;
+  border-right: 1px solid black;
+}
 .player-character {
   position: absolute;
   left: 50%;
   bottom: 0px;
   width: 20px;
   height: 20px;
-  background-color: black;
+  background-color: green;
+  transition: all 0.25s ease-in-out;
+}
+
+.img {
+  position: absolute;
+  width: 20vw;
+  height: 20vw;
+}
+
+.img1 {
+  left: 0%;
+  border: 3px solid red;
+}
+.img2 {
+  left: 25%;
+  border: 3px solid blue;
+}
+.img3 {
+  left: 50%;
+  border: 3px solid yellow;
+}
+.img4 {
+  left: 75%;
+  border: 3px solid green;
 }
