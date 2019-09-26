@@ -1,15 +1,15 @@
-import React from "react";
+import React from "./node_modules/react";
 
 const TeamForm = ({ updateSearch }) => {
   return (
     <>
       <form>
-        <label>
+        <label className="form-label">
           Organisation
           <input type="text" name="organisation" onChange={updateSearch} />
         </label>
 
-        <label>
+        <label className="form-label">
           Team
           <input type="text" name="team" onChange={updateSearch} />
         </label>

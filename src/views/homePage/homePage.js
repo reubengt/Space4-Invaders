@@ -2,7 +2,7 @@ import React from "react";
 import "./homePage.css";
 import requestMembers from "../../utils/requestMembers";
 
-import TeamForm from "../../components/TeamForm/TeamForm";
+import TeamForm from "../../components/teamForm/TeamForm";
 import InitiateGame from "../../components/InitiateGame/InitiateGame";
 
 const HomePage = ({ setPage, profiles, setProfiles }) => {
