@@ -24,6 +24,13 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
       event.preventDefault();
       setProfiles("loading");
       requestMembers(organisation, team).then(profiles => {
+        console.log(
+          profiles
+            .map(
+              profile => `{name: "${profile.name}", image: "${profile.image}"},`
+            )
+            .join("")
+        );
         setProfiles(profiles);
       });
     };
