@@ -11,7 +11,6 @@ const requestMembers = async (org, team) => {
   ).then(res => {
     return res.json();
   });
-  console.log("members", membersObject);
   const memberInfoPromiseArray = membersObject.map(member => {
     return fetch(`${member.url}?access_token=${token}`)
       .then(res => res.json())
@@ -24,7 +23,6 @@ const requestMembers = async (org, team) => {
         return memberInfo;
       });
   });
-  console.log("memberinfopromises", memberInfoPromiseArray);
   const memberInfoArray = await Promise.all(memberInfoPromiseArray).then(
     resultArray => {
       return resultArray;

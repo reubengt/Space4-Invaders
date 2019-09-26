@@ -3,16 +3,17 @@ import "./App.css";
 
 import requestMembers from "./utils/requestMembers";
 import HomePage from "./views/homePage/homePage";
+import GamePage from "./views/gamePage/gamePage";
 const App = () => {
-  const Team = async () => {
-    const data = await requestMembers("FAC-17", "students");
-    console.log("Data in component", data);
-  };
-  Team();
+  // const Team = async () => {
+  //   const data = await requestMembers("FAC-17", "students");
+  //   console.log("Data in component", data);
+  // };
+  // Team();
   return (
     <div className="App">
       <header className="App-header">Name the Face Game</header>
-      <HomePage />
+      <GamePage />
     </div>
   );
 };
