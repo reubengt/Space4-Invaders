@@ -1,7 +1,8 @@
 import React from "react";
 import "./gamePage.css";
 import { positionArray } from "./../../utils/constants";
-const GamePage = () => {
+
+const GamePage = ({ profiles }) => {
   const [leftOffset, setleftOffset] = React.useState(positionArray[0]);
   const [selectedIndex, setselectedIndex] = React.useState(null);
   const styleObj = {
