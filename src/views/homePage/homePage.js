@@ -23,7 +23,7 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
   return (
     <div className="home-page">
       <div>
-        <h1>Welcome to the best Name and Face learning game... EVER</h1>
+        <h1>The best Name and Face learning game... EVER</h1>
         <div className="instructions">
           <p>We currently only use github data.</p>
           <p className="instruction-item">
@@ -31,6 +31,10 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
           </p>
           <p className="instruction-item">
             2. Enter a team within that org (e.g. 'students') and get learning
+          </p>
+          <p className="instruction-item">
+            (3. Remember to tell us how much better our game is than Anthony and
+            Andy's)
           </p>
         </div>
       </div>
