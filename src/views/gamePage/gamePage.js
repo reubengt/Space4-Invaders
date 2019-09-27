@@ -2,13 +2,10 @@ import React from "react";
 import "./gamePage.css";
 
 import { positionArray } from "./../../utils/constants";
-
-let currentIndex = 0;
-
 const GamePage = ({
   gameArrays: { gamePhasesArray, correctPositionArray }
 }) => {
-  const [translateX, settranslateX] = React.useState(positionArray[0]);
+  const [playerPositionIndex, setplayerPositionIndex] = React.useState(0);
   const [selectedIndex, setselectedIndex] = React.useState(null);
   const [currentPhase, setCurrentPhase] = React.useState(0);
   const [score, setScore] = React.useState(0);
@@ -18,7 +15,7 @@ const GamePage = ({
   const correctName = gamePhasesArray[currentPhase][correctIndex].name;
   console.log({ correctName });
   const styleObj = {
-    transform: translateX
+    transform: positionArray[playerPositionIndex]
   };
   const image1Style = {
     backgroundImage: `url(${gamePhasesArray[currentPhase][0].image})`
@@ -35,30 +32,24 @@ const GamePage = ({
   React.useEffect(() => {
     const handleKeyDown = event => {
       if (event.key === "ArrowLeft") {
-        if (currentIndex === 0) return;
+        if (playerPositionIndex === 0) return;
         else {
-          currentIndex -= 1;
-          console.log({ currentIndex });
-          settranslateX(positionArray[currentIndex]);
+          setplayerPositionIndex(current => current - 1);
         }
       }
       if (event.key === "ArrowRight") {
-        if (currentIndex === 3) return;
+        if (playerPositionIndex === 3) return;
         else {
-          currentIndex += 1;
-          console.log({ currentIndex });
-          settranslateX(positionArray[currentIndex]);
+          setplayerPositionIndex(current => current + 1);
         }
       }
-      console.log("currentPhase before hitting enter", currentPhase);
-      if (event.key === " ") {
-        setselectedIndex(currentIndex);
-        console.log({ currentIndex }, { correctIndex });
-        console.log({ currentPhase });
-        if (currentIndex === correctIndex) {
+      console.log("player position", playerPositionIndex);
+      if (event.key === " " && gameStatus === "start") {
+        setselectedIndex(playerPositionIndex);
+        if (playerPositionIndex === correctIndex) {
           setScore(s => s + 1);
         }
-        console.log("index of selection", currentIndex);
+        console.log("index of selection", playerPositionIndex);
         //load next game phase
         if (currentPhase < gamePhasesArray.length - 1) {
           setCurrentPhase(oldPhase => oldPhase + 1);
@@ -71,7 +62,13 @@ const GamePage = ({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [correctIndex, currentPhase, gamePhasesArray.length, selectedIndex]);
+  }, [
+    correctIndex,
+    currentPhase,
+    gamePhasesArray.length,
+    selectedIndex,
+    playerPositionIndex
+  ]);
 
   return (
     <div className="main-container">
