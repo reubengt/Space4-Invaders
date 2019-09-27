@@ -67,7 +67,8 @@ const GamePage = ({
     currentPhase,
     gamePhasesArray.length,
     selectedIndex,
-    playerPositionIndex
+    playerPositionIndex,
+    gameStatus
   ]);
 
   return (
@@ -75,9 +76,15 @@ const GamePage = ({
       {gameStatus === "start" ? (
         <>
           <div className="game-info">
-            <h2>PHASE {currentPhase + 1}</h2>
-            <h2 className="target">Your Target is {correctName}</h2>
-            <h3>score:{score}</h3>
+            <h2>
+              Phase: <span className="highlight-text">{currentPhase + 1}</span>
+            </h2>
+            <h2 className="target">
+              Who is <span className="highlight-text">{correctName}</span>
+            </h2>
+            <h3>
+              Score: <span className="highlight-text">{score}</span>
+            </h3>
           </div>
           <div className="game-container">
             <div className="column"></div>
@@ -123,13 +130,17 @@ const GamePage = ({
             ></div>
             <div className="player-character" style={styleObj}></div>
           </div>
+
+          <br />
+
           <h4>
             Controls: Left and Right Arrow Keys to move, Spacebar to Shoot.
           </h4>
         </>
       ) : (
-        <div className="game-container">
+        <div className="game-over-container">
           <h1>Game Over</h1>
+          <br />
           <h2>
             Your Score:{score}/{gamePhasesArray.length}
           </h2>

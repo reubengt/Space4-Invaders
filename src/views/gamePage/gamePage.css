@@ -76,3 +76,7 @@
 .shot-down-incorrect {
   background-color: red;
 }
+
+.highlight-text {
+  color: greenyellow;
+}
