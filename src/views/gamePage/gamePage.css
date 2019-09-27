@@ -6,7 +6,8 @@
 .main-container {
   height: 90vh;
   width: 100vw;
-  background-color: grey;
+  background-color: rgb(3, 63, 131);
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
