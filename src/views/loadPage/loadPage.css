@@ -1,0 +1,16 @@
+.load-page {
+  height: 90vh;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-around; */
+  padding: 4em;
+}
+
+.instructions {
+  margin: 3em;
+}
+
+.instruction-item {
+  padding-top: 1em;
+  font-style: italic;
+}

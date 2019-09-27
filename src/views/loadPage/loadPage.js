@@ -12,18 +12,28 @@ const LoadPage = ({ profiles, setPage, setGameArrays }) => {
   };
 
   return (
-    <>
-      <div className="start-game">
-        <h2>Instructions</h2>
-        <p> Some Instructions....</p>
-        <br />
-
-        <h2>Are You Ready to Learn???</h2>
-        <button id="start-button" onClick={startGame}>
-          Start Game
-        </button>
+    <div className="load-page">
+      <h2>Instructions</h2>
+      <div className="instructions">
+        <p>
+          You'll see a row of 4 faces and you need to shoot the right one
+          (spacebar).
+        </p>
+        <p className="instruction-item">
+          1. Win a point each time you guess correct
+        </p>
+        <p className="instruction-item">
+          2. Feel like a failure if you get it wrong
+        </p>
       </div>
-    </>
+
+      <br />
+
+      <h2>Are You Ready to play???</h2>
+      <button id="start-button" onClick={startGame}>
+        Start Game
+      </button>
+    </div>
   );
 };
 
