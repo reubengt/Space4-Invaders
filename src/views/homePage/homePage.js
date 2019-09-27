@@ -6,31 +6,19 @@ import TeamForm from "../../components/teamForm/TeamForm";
 import SearchStatus from "../../components/SearchStatus/SearchStatus";
 
 const HomePage = ({ setPage, profiles, setProfiles }) => {
-  const [organisation, setOrganisation] = React.useState("");
-  const [team, setTeam] = React.useState("");
-
-  const updateSearch = event => {
-    event.target.name === "team"
-      ? setTeam(event.target.value)
-      : setOrganisation(event.target.value);
-  };
-
   const loadGame = () => {
     setPage("load");
   };
 
-  React.useEffect(() => {
-    const submitSearch = event => {
-      event.preventDefault();
-      setProfiles("loading");
-      requestMembers(organisation, team).then(profiles => {
-        setProfiles(profiles);
-      });
-    };
-
-    window.addEventListener("submit", submitSearch);
-    return () => window.removeEventListener("submit", submitSearch);
-  }, [organisation, profiles, setProfiles, team]);
+  function handleSubmit(event) {
+    event.preventDefault();
+    const team = event.target.elements.team.value;
+    const org = event.target.elements.organisation.value;
+    setProfiles("loading");
+    requestMembers(org, team).then(profiles => {
+      setProfiles(profiles);
+    });
+  }
 
   return (
     <>
@@ -41,7 +29,7 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
           quickly forever associate with their names thanks to our better game
         </h4>
       </div>
-      <TeamForm updateSearch={updateSearch} />
+      <TeamForm handleSubmit={handleSubmit} />
       <SearchStatus profiles={profiles} loadGame={loadGame} />
     </>
   );
