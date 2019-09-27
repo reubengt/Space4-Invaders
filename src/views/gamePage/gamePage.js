@@ -1,37 +1,36 @@
 import React from "react";
 import "./gamePage.css";
 
-import {
-  positionArray,
-  sampleGameArray,
-  sampleCorrectArray
-} from "./../../utils/constants";
+import { positionArray } from "./../../utils/constants";
+
 let currentIndex = 0;
 
-const GamePage = () => {
+const GamePage = ({
+  gameArrays: { gamePhasesArray, correctPositionArray }
+}) => {
   const [leftOffset, setleftOffset] = React.useState(positionArray[0]);
   const [selectedIndex, setselectedIndex] = React.useState(null);
   const [currentPhase, setCurrentPhase] = React.useState(0);
   const [score, setScore] = React.useState(0);
   const [gameStatus, setGameStatus] = React.useState("start");
-  const correctIndex = sampleCorrectArray[currentPhase];
+  const correctIndex = correctPositionArray[currentPhase];
   console.log({ correctIndex });
-  const correctName = sampleGameArray[currentPhase][correctIndex].name;
+  const correctName = gamePhasesArray[currentPhase][correctIndex].name;
   console.log({ correctName });
   const styleObj = {
     left: leftOffset
   };
   const image1Style = {
-    backgroundImage: `url(${sampleGameArray[currentPhase][0].image})`
+    backgroundImage: `url(${gamePhasesArray[currentPhase][0].image})`
   };
   const image2Style = {
-    backgroundImage: `url(${sampleGameArray[currentPhase][1].image})`
+    backgroundImage: `url(${gamePhasesArray[currentPhase][1].image})`
   };
   const image3Style = {
-    backgroundImage: `url(${sampleGameArray[currentPhase][2].image})`
+    backgroundImage: `url(${gamePhasesArray[currentPhase][2].image})`
   };
   const image4Style = {
-    backgroundImage: `url(${sampleGameArray[currentPhase][3].image})`
+    backgroundImage: `url(${gamePhasesArray[currentPhase][3].image})`
   };
   React.useEffect(() => {
     const handleKeyDown = event => {
@@ -61,7 +60,7 @@ const GamePage = () => {
         }
         console.log("index of selection", currentIndex);
         //load next game phase
-        if (currentPhase < sampleGameArray.length - 1) {
+        if (currentPhase < gamePhasesArray.length - 1) {
           setCurrentPhase(oldPhase => oldPhase + 1);
         } else {
           setGameStatus("end");
@@ -72,7 +71,7 @@ const GamePage = () => {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [correctIndex, currentPhase, selectedIndex]);
+  }, [correctIndex, currentPhase, gamePhasesArray.length, selectedIndex]);
 
   return (
     <div className="main-container">
@@ -137,7 +136,7 @@ const GamePage = () => {
         <div className="game-container">
           <h1>Game Over</h1>
           <h2>
-            Your Score:{score}/{sampleGameArray.length}
+            Your Score:{score}/{gamePhasesArray.length}
           </h2>
         </div>
       )}
