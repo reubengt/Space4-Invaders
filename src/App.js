@@ -3,10 +3,12 @@ import "./App.css";
 
 import HomePage from "./views/homePage/homePage";
 import GamePage from "./views/gamePage/gamePage";
+import LoadPage from "./views/loadPage/loadPage";
 
 const App = () => {
   const [page, setPage] = React.useState("home");
   const [profiles, setProfiles] = React.useState("");
+  const [gameArrays, setGameArrays] = React.useState("");
 
   return (
     <div className="App">
@@ -17,8 +19,14 @@ const App = () => {
           profiles={profiles}
           setProfiles={setProfiles}
         />
+      ) : page === "load" ? (
+        <LoadPage
+          profiles={profiles}
+          setPage={setPage}
+          setGameArrays={setGameArrays}
+        />
       ) : page === "game" ? (
-        <GamePage />
+        <GamePage gameArrays={gameArrays} />
       ) : (
         <p>ERROR!!!</p>
       )}

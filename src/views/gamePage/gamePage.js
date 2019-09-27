@@ -1,11 +1,13 @@
 import React from "react";
 import "./gamePage.css";
+
 import {
   positionArray,
   sampleGameArray,
   sampleCorrectArray
 } from "./../../utils/constants";
 let currentIndex = 0;
+
 const GamePage = () => {
   const [leftOffset, setleftOffset] = React.useState(positionArray[0]);
   const [selectedIndex, setselectedIndex] = React.useState(null);
