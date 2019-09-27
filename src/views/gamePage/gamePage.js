@@ -19,6 +19,18 @@ const GamePage = () => {
   const styleObj = {
     left: leftOffset
   };
+  const image1Style = {
+    backgroundImage: `url(${sampleGameArray[currentPhase][0].image})`
+  };
+  const image2Style = {
+    backgroundImage: `url(${sampleGameArray[currentPhase][1].image})`
+  };
+  const image3Style = {
+    backgroundImage: `url(${sampleGameArray[currentPhase][2].image})`
+  };
+  const image4Style = {
+    backgroundImage: `url(${sampleGameArray[currentPhase][3].image})`
+  };
   React.useEffect(() => {
     const handleKeyDown = event => {
       if (event.key === "ArrowLeft") {
@@ -64,9 +76,8 @@ const GamePage = () => {
     <div className="main-container">
       {gameStatus === "start" ? (
         <>
-          <h2>Your Target is {correctName}</h2>
-          <h2>correctIndex {correctIndex}</h2>
-          <h3>score:{score}</h3>
+          <h1>Your Target is {correctName}</h1>
+          <h2>score:{score}</h2>
           <div className="game-container">
             <div className="column"></div>
             <div className="column"></div>
@@ -80,6 +91,7 @@ const GamePage = () => {
                   ? "shot-down-incorrect"
                   : ""
               }`}
+              style={image1Style}
             ></div>
             <div
               className={`img img2 ${
@@ -89,6 +101,7 @@ const GamePage = () => {
                   ? "shot-down-incorrect"
                   : ""
               }`}
+              style={image2Style}
             ></div>
             <div
               className={`img img3 ${
@@ -98,6 +111,7 @@ const GamePage = () => {
                   ? "shot-down-incorrect"
                   : ""
               }`}
+              style={image3Style}
             ></div>
             <div
               className={`img img4 ${
@@ -107,6 +121,7 @@ const GamePage = () => {
                   ? "shot-down-incorrect"
                   : ""
               }`}
+              style={image4Style}
             ></div>
             <div className="player-character" style={styleObj}></div>
           </div>
