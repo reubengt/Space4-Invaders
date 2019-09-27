@@ -1,7 +1,7 @@
-const firstPosition = "translateX(calc(0vw + (20vw / 2) - 10px))";
-const secondPosition = "translateX(calc(20vw + (20vw / 2) - 10px))";
-const thirdPosition = "translateX(calc(40vw + (20vw / 2) - 10px))";
-const fourthPosition = "translateX(calc(60vw + (20vw / 2) - 10px))";
+const firstPosition = "translateX(calc(0vw + (20vw / 2) - 30px))";
+const secondPosition = "translateX(calc(20vw + (20vw / 2) - 30px))";
+const thirdPosition = "translateX(calc(40vw + (20vw / 2) - 30px))";
+const fourthPosition = "translateX(calc(60vw + (20vw / 2) - 30px))";
 export const positionArray = [
   firstPosition,
   secondPosition,

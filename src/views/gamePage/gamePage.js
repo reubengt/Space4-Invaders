@@ -74,14 +74,12 @@ const GamePage = ({
     <div className="main-container">
       {gameStatus === "start" ? (
         <>
-          <h1>***Space4 Invaders***</h1>
-          <h2>PHASE {currentPhase + 1}</h2>
-          <h2>Your Target is {correctName}</h2>
-          <h3>score:{score}</h3>
+          <div className="game-info">
+            <h2>PHASE {currentPhase + 1}</h2>
+            <h2 className="target">Your Target is {correctName}</h2>
+            <h3>score:{score}</h3>
+          </div>
           <div className="game-container">
-            <div className="column"></div>
-            <div className="column"></div>
-            <div className="column"></div>
             <div className="column"></div>
             <div
               className={`img img1 ${
