@@ -78,8 +78,10 @@ const GamePage = () => {
     <div className="main-container">
       {gameStatus === "start" ? (
         <>
-          <h1>Your Target is {correctName}</h1>
-          <h2>score:{score}</h2>
+          <h1>***Space4 Invaders***</h1>
+          <h2>PHASE {currentPhase + 1}</h2>
+          <h2>Your Target is {correctName}</h2>
+          <h3>score:{score}</h3>
           <div className="game-container">
             <div className="column"></div>
             <div className="column"></div>
@@ -127,6 +129,9 @@ const GamePage = () => {
             ></div>
             <div className="player-character" style={styleObj}></div>
           </div>
+          <h4>
+            Controls: Left and Right Arrow Keys to move, Spacebar to Shoot.
+          </h4>
         </>
       ) : (
         <div className="game-container">
