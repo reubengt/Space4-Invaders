@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">Name the Face Game</header>
-      {/* {page === "home" ? (
+      {page === "home" ? (
         <HomePage
           setPage={setPage}
           profiles={profiles}
@@ -21,8 +21,7 @@ const App = () => {
         <GamePage />
       ) : (
         <p>ERROR!!!</p>
-      )} */}
-      <GamePage />
+      )}
     </div>
   );
 };
