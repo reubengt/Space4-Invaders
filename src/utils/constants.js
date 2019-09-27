@@ -8,7 +8,6 @@ export const positionArray = [
   thirdPosition,
   fourthPosition
 ];
-
 export const sampleGameArray = [
   [
     {
