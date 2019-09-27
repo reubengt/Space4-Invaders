@@ -36,6 +36,7 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
       </div>
       <TeamForm handleSubmit={handleSubmit} />
       <SearchStatus profiles={profiles} loadGame={loadGame} />
+      <br />
     </div>
   );
 };
