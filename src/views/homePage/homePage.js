@@ -21,17 +21,23 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
   }
 
   return (
-    <>
+    <div className="home-page">
       <div>
         <h1>Welcome to the best Name and Face learning game... EVER</h1>
-        <h4>
-          It is much better than Anthony's terrible game whose faces you will
-          quickly forever associate with their names thanks to our better game
-        </h4>
+        <div className="instructions">
+          <p>We currently only use github data.</p>
+          <p className="instruction-item">
+            1. Enter an organisation (e.g. 'FAC-17')
+          </p>
+          <p className="instruction-item">
+            2. Enter a team within that org (e.g. 'students') and get learning
+          </p>
+        </div>
       </div>
       <TeamForm handleSubmit={handleSubmit} />
       <SearchStatus profiles={profiles} loadGame={loadGame} />
-    </>
+      <br />
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ import React from "react";
 const TeamForm = ({ handleSubmit }) => {
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form id="team-form" onSubmit={handleSubmit}>
         <label className="form-label">
           Organisation
           <input type="text" name="organisation" />

@@ -1,5 +1,20 @@
 .App {
   text-align: center;
+  background-color: #2c6cec;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  /* height: 100vh; */
+}
+
+button {
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+  background-color: rgb(234, 0, 255);
+  border-radius: 10px;
+  padding: 0.7em;
+  outline: none;
+  margin: 1em;
 }
 
 .App-logo {

@@ -1,0 +1,30 @@
+.load-page {
+  height: 100%;
+  padding: 4em;
+}
+
+.instructions {
+  margin: 3em;
+}
+
+.instruction-item {
+  padding-top: 1em;
+  font-style: italic;
+}
+
+#team-preview {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.team-member {
+  padding: 0.5em;
+  margin: 1em;
+  background-color: rgb(3, 63, 131);
+  border-radius: 10px;
+}
+
+.team-member-image {
+  height: 5em;
+  border-radius: 50%;
+}
