@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">Name the Face Game</header>
+      <header className="App-header">SPACE4 INVADERS</header>
       {page === "home" ? (
         <HomePage
           setPage={setPage}
