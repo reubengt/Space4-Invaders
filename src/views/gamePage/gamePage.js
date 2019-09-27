@@ -8,7 +8,7 @@ let currentIndex = 0;
 const GamePage = ({
   gameArrays: { gamePhasesArray, correctPositionArray }
 }) => {
-  const [leftOffset, setleftOffset] = React.useState(positionArray[0]);
+  const [translateX, settranslateX] = React.useState(positionArray[0]);
   const [selectedIndex, setselectedIndex] = React.useState(null);
   const [currentPhase, setCurrentPhase] = React.useState(0);
   const [score, setScore] = React.useState(0);
@@ -18,7 +18,7 @@ const GamePage = ({
   const correctName = gamePhasesArray[currentPhase][correctIndex].name;
   console.log({ correctName });
   const styleObj = {
-    left: leftOffset
+    transform: translateX
   };
   const image1Style = {
     backgroundImage: `url(${gamePhasesArray[currentPhase][0].image})`
@@ -39,7 +39,7 @@ const GamePage = ({
         else {
           currentIndex -= 1;
           console.log({ currentIndex });
-          setleftOffset(positionArray[currentIndex]);
+          settranslateX(positionArray[currentIndex]);
         }
       }
       if (event.key === "ArrowRight") {
@@ -47,7 +47,7 @@ const GamePage = ({
         else {
           currentIndex += 1;
           console.log({ currentIndex });
-          setleftOffset(positionArray[currentIndex]);
+          settranslateX(positionArray[currentIndex]);
         }
       }
       console.log("currentPhase before hitting enter", currentPhase);

@@ -14,7 +14,7 @@
 }
 
 .game-container {
-  height: 60vh;
+  height: 80vh;
   width: 80vw;
   position: relative;
   background-color: black;
@@ -28,12 +28,12 @@
 }
 .player-character {
   position: absolute;
-  left: 50%;
   bottom: 0px;
+  transform: translateX(0px);
   width: 20px;
   height: 20px;
   background-color: green;
-  transition: all 0.25s ease-in-out;
+  transition: transform 0.12s ease;
 }
 
 .img {
