@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-color: #2c6cec;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  height: 100vh;
 }
 
 .App-logo {
