@@ -3,7 +3,7 @@ import "./homePage.css";
 import requestMembers from "../../utils/requestMembers";
 
 import TeamForm from "../../components/teamForm/TeamForm";
-import InitiateGame from "../../components/InitiateGame/InitiateGame";
+import SearchStatus from "../../components/SearchStatus/SearchStatus";
 
 const HomePage = ({ setPage, profiles, setProfiles }) => {
   const [organisation, setOrganisation] = React.useState("");
@@ -15,8 +15,8 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
       : setOrganisation(event.target.value);
   };
 
-  const startGame = () => {
-    setPage("game");
+  const loadGame = () => {
+    setPage("load");
   };
 
   React.useEffect(() => {
@@ -42,7 +42,7 @@ const HomePage = ({ setPage, profiles, setProfiles }) => {
         </h4>
       </div>
       <TeamForm updateSearch={updateSearch} />
-      <InitiateGame profiles={profiles} startGame={startGame} />
+      <SearchStatus profiles={profiles} loadGame={loadGame} />
     </>
   );
 };

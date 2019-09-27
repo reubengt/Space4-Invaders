@@ -9,7 +9,7 @@ export const positionArray = [
   fourthPosition
 ];
 
-const sampleGameArray = [
+export const sampleGameArray = [
   [
     {
       name: "Victor Masson",
@@ -84,4 +84,4 @@ const sampleGameArray = [
   ]
 ];
 
-const sampleCorrectArray = [3, 1, 2, 0];
+export const sampleCorrectArray = [3, 1, 2, 0];
