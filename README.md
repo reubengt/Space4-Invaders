@@ -1,7 +1,7 @@
-# Face Name Game
+# Space4 Invaders - for github teams to learn each other's names!
 
 [Play the Game](https://face-name-game.netlify.com)
-
+![screenshot of app](./Screenshot%202019-09-29%20at%2021.55.47.png)
 ---
 
 ## Why
